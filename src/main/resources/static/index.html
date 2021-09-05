@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>opgg</title>
     <style>
-        #field-error {
-            border-color: #dc3545;
-            color: #dc3545;
-        }
+        @import url("css/styles.css");
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- search -->
+
+    <img src="https://opgg-static.akamaized.net/logo/20210826052114.86cb111fd8dc414c973a308164a839bd.png" class="image">
+    <br><br>
+
+    <!--search-->
     <div class="row">
         <div class="col-sm-6 col-md-8">
             <input id="searchBox" style="height: 46px" class="form-control form-control-lg" type="text" placeholder="소환사 명을 입력해 주세요.">
@@ -26,10 +26,14 @@
     <div class="row" id="search-result" style="visibility: hidden">
         <div class="col-sm-6 col-md-4">
             <span id="field-error">{{search_result.errorMessage}}</span>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{search_result.username}}</li>
-                <li class="list-group-item">{{search_result.rank}}</li>
-            </ul>
+        </div>
+        <div class="information" v-if="search_result.username">
+            <span id="userid">{{search_result.id}}</span><br>
+            <label id="usernamelabel">소환사 명:</label>
+            <span class="username">{{search_result.username}}</span><br>
+            <label id="ranklabel">랭크:</label>
+            <span class="rank">{{search_result.rank}}</span><br>
+            <button id="refreshButton" type="button" class="btn btn-primary btn-lg" >전적 갱신</button>
         </div>
     </div>
 </div>

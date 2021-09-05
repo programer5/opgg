@@ -7,6 +7,6 @@ import task.opgg.domain.dto.UserResponseDto;
 import task.opgg.domain.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    @Query("select new task.opgg.domain.dto.UserResponseDto(u.username, u.rank) from User u")
+    @Query("select new task.opgg.domain.dto.UserResponseDto(u.id, u.username, u.rank) from User u")
     UserResponseDto findByUsername(String username);
 }

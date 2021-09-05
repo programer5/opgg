@@ -11,6 +11,7 @@ import task.opgg.domain.entity.User;
 @AllArgsConstructor
 public class UserResponseDto {
 
+    private Long id;
     private String username;
     private Rank rank;
 

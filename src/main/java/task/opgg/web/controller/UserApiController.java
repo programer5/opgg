@@ -39,8 +39,13 @@ public class UserApiController {
         if (!StringUtils.hasText(username)) {
             return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("소환사 명을 입력해 주세요!"));
         } else if (!users.getUsername().equals(username)) {
-            return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("입력하신 소환사명은 존재하지 않습니다"));
+            return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("입력하신 소환사명은 존재하지 않습니다!"));
         }
         return ResponseEntity.status(HttpStatus.OK).body(users);
+    }
+
+    @GetMapping("/search/{userId}")
+    public ResponseEntity refreshUser(@RequestParam("userId") Long userId) {
+        return null;
     }
 }
