@@ -20,4 +20,9 @@ public class UserService {
     public UserResponseDto findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
+    @Transactional
+    public void save(User user) {
+        userRepository.save(user);
+    }
 }

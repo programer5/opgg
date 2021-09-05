@@ -9,7 +9,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import task.opgg.domain.dto.ErrorResponse;
 import task.opgg.domain.dto.UserResponseDto;
+import task.opgg.domain.entity.User;
 import task.opgg.domain.service.UserService;
+
+import javax.annotation.PostConstruct;
 
 @Api(tags = {"API 정보를 제공하는 Controller"})
 @RestController
@@ -19,8 +22,18 @@ public class UserApiController {
 
     private final UserService userService;
 
+    @PostConstruct
+    public void save() {
+        User user = new User();
+        user.setUsername("opgg");
+        user.setScore(500);
+        user.setRank(user.MyRank(user));
+
+        userService.save(user);
+    }
+
     @GetMapping("/search")
-    public ResponseEntity user(@RequestParam("username") String username) {
+    public ResponseEntity findUser(@RequestParam("username") String username) {
 
         UserResponseDto users = userService.findByUsername(username);
 
