@@ -5,12 +5,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import task.opgg.domain.dto.ErrorResponse;
+import task.opgg.common.errormessage.ErrorResponse;
 import task.opgg.domain.dto.UserResponseDto;
 import task.opgg.domain.entity.User;
-import task.opgg.domain.service.UserService;
+import task.opgg.service.UserService;
 
 import javax.annotation.PostConstruct;
 

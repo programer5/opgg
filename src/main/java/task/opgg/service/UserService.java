@@ -1,14 +1,11 @@
-package task.opgg.domain.service;
+package task.opgg.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import task.opgg.domain.dto.UserRequestDto;
 import task.opgg.domain.dto.UserResponseDto;
 import task.opgg.domain.entity.User;
 import task.opgg.domain.repository.UserRepository;
-
-import java.util.List;
 
 @Service
 @Transactional(readOnly = true)

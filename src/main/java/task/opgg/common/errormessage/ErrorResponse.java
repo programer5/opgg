@@ -1,4 +1,4 @@
-package task.opgg.domain.dto;
+package task.opgg.common.errormessage;
 
 import lombok.Getter;
 import lombok.Setter;
