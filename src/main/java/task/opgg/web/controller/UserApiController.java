@@ -7,11 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import task.opgg.common.errormessage.ErrorResponse;
+import task.opgg.domain.dto.UserRequestDto;
 import task.opgg.domain.dto.UserResponseDto;
 import task.opgg.domain.entity.User;
 import task.opgg.service.UserService;
 
 import javax.annotation.PostConstruct;
+import java.util.Optional;
 
 @Api(tags = {"API 정보를 제공하는 Controller"})
 @RestController
@@ -45,7 +47,16 @@ public class UserApiController {
     }
 
     @GetMapping("/search/{userId}")
-    public ResponseEntity refreshUser(@RequestParam("userId") Long userId) {
-        return null;
+    public ResponseEntity refreshUser(@PathVariable("userId") Long userId) {
+
+        Optional<User> user = userService.findById(userId);
+        if (user == null) {
+            System.out.println("22222222222222221111111111111");
+            return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("전적 갱신 중..."));
+        } else if (user != null) {
+            System.out.println("2222222222222222211");
+            return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("갱신 완료!"));
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 }

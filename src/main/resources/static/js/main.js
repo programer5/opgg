@@ -13,17 +13,6 @@
         }
     });
 
-    // refresh
-    $("#refreshButton").click(function () {
-        const userId = $("#userid").val();
-        console.log(userId);
-        $.get(`/api/search/${userId}`, function (response) {
-            search_result.search_result = response;
-            $('#search-result').attr('style','visible');
-            console.log(search_result.search_result);
-        });
-    });
-
     // search
     $("#searchButton").click(function () {
         const username = $("#searchBox").val();

@@ -7,6 +7,8 @@ import task.opgg.domain.dto.UserResponseDto;
 import task.opgg.domain.entity.User;
 import task.opgg.domain.repository.UserRepository;
 
+import java.util.Optional;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -21,5 +23,9 @@ public class UserService {
     @Transactional
     public void save(User user) {
         userRepository.save(user);
+    }
+
+    public Optional<User> findById(Long userId) {
+        return userRepository.findById(userId);
     }
 }
