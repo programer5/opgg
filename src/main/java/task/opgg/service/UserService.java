@@ -25,7 +25,15 @@ public class UserService {
         userRepository.save(user);
     }
 
+    @Transactional
     public Optional<User> findById(Long userId) {
-        return userRepository.findById(userId);
+
+        Optional<User> user = userRepository.findById(userId);
+        user.get().setScore(700);
+        user.get().setRank(user.get().MyRank(user.get()));
+
+        System.out.println(user.get().getRank());
+
+        return user;
     }
 }

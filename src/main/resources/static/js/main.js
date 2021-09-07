@@ -15,6 +15,9 @@
 
     // search
     $("#searchButton").click(function () {
+        $('#loading').hide();
+        $('#loadComplete').hide();
+        $('#userid').hide();
         const username = $("#searchBox").val();
         $.get(`/api/search?username=${username}`, function (response) {
             search_result.search_result = response;
@@ -25,6 +28,9 @@
 
     // Enter
     $("#searchBox").keydown(function(key) {
+        $('#loading').hide();
+        $('#loadComplete').hide();
+        $('#userid').hide();
         if (key.keyCode === 13) {
             const username = $("#searchBox").val();
             $.get(`/api/search?username=${username}`, function (response) {

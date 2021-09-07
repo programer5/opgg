@@ -40,7 +40,7 @@ public class UserApiController {
 
         if (!StringUtils.hasText(username)) {
             return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("소환사 명을 입력해 주세요!"));
-        } else if (!users.getUsername().equals(username)) {
+        } else if (users == null) {
             return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("입력하신 소환사명은 존재하지 않습니다!"));
         }
         return ResponseEntity.status(HttpStatus.OK).body(users);
@@ -50,13 +50,8 @@ public class UserApiController {
     public ResponseEntity refreshUser(@PathVariable("userId") Long userId) {
 
         Optional<User> user = userService.findById(userId);
-        if (user == null) {
-            System.out.println("22222222222222221111111111111");
-            return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("전적 갱신 중..."));
-        } else if (user != null) {
-            System.out.println("2222222222222222211");
-            return ResponseEntity.status(HttpStatus.OK).body(new ErrorResponse("갱신 완료!"));
-        }
+        System.out.println("user = " + user);
+
         return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 }

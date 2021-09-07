@@ -28,51 +28,38 @@
             <span id="field-error">{{search_result.errorMessage}}</span>
         </div>
         <div class="information" v-if="search_result.username">
-            <div id="userid">{{search_result.id}}</div>
-            <label id="usernamelabel">소환사 명:</label>
-            <span class="username">{{search_result.username}}</span><br>
-            <label id="ranklabel">랭크:</label>
-            <span class="rank">{{search_result.rank}}</span><br>
+            <img src="images/profileIcon4652.jpg" class="profileImage"><br>
+            <label id="usernamelabel">소환사 명:<span class="username">{{search_result.username}}</span></label><br>
+            <label id="ranklabel">랭크:<span class="rank" id="rank">{{search_result.rank}}</span></label><br>
             <button id="refreshButton" type="button" class="btn btn-primary btn-lg" onclick="refreshButton();">전적 갱신</button>
-            <span>{{search_result.errorMessage}}</span>
         </div>
+        <div id="userid">{{search_result.id}}</div>
+        <div id="loading">갱신 중!</div>
+        <div id="loadComplete">갱신 완료!</div>
     </div>
 </div>
 </body>
 <script>
 
-
-    // 검색 결과 vue object
-    var search_result = new Vue({
-        el: '#search-result',
-        data: {
-            search_result : {}
-        },
-        method: {
-            Button: function (event) {
-                console.log("add");
-            }
-        }
-    });
-
     function refreshButton() {
+
         const userId = document.getElementById('userid').innerText;
         console.log(userId);
+        $('#loading').show();
 
         $.get(`/api/search/${userId}`, function (response) {
             console.log(response);
-            const username = document.createElement("div");
-            const rank = document.createElement("div");
 
-            username.textContent = response.username;
             rank.textContent = response.rank;
+            const rankInfo = document.getElementById("rank");
+            rankInfo.append();
 
-            search_result.search_result = response;
-            $('#search-result').attr('style','visible');
-            console.log(search_result.search_result);
+            $('#loading').hide();
+            $('#loadComplete').show();
         });
     }
 </script>
+
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
