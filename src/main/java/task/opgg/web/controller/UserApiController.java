@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import task.opgg.common.errormessage.ErrorResponse;
-import task.opgg.domain.dto.UserRequestDto;
 import task.opgg.domain.dto.UserResponseDto;
 import task.opgg.domain.entity.User;
 import task.opgg.service.UserService;
@@ -15,7 +14,6 @@ import task.opgg.service.UserService;
 import javax.annotation.PostConstruct;
 import java.util.Optional;
 
-@Api(tags = {"API 정보를 제공하는 Controller"})
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
