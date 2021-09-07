@@ -7,7 +7,8 @@ import lombok.Setter;
 import task.opgg.domain.entity.Rank;
 import task.opgg.domain.entity.User;
 
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserResponseDto {

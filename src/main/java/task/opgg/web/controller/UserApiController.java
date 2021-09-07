@@ -21,15 +21,15 @@ public class UserApiController {
 
     private final UserService userService;
 
-//    @PostConstruct
-//    public void save() {
-//        User user = new User();
-//        user.setUsername("opgg");
-//        user.setScore(500);
-//        user.setRank(user.MyRank(user));
-//
-//        userService.save(user);
-//    }
+    @PostConstruct
+    public void save() {
+        User user = new User();
+        user.setUsername("opgg");
+        user.setScore(500);
+        user.setRank(user.MyRank(user));
+
+        userService.save(user);
+    }
 
     @GetMapping("/search")
     public ResponseEntity findUser(@RequestParam("username") String username) {
