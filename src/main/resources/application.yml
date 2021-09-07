@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/opgg;MODE=MYSQL
-    username: opgg
-    password: a1s2d3a1s2
+    username: sa
+    password:
     driver-class-name: org.h2.Driver
     hikari:
       jdbc-url: jdbc:h2:tcp://localhost/~/opgg;MODE=MYSQL
