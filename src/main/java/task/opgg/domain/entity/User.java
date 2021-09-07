@@ -13,7 +13,6 @@ import javax.persistence.*;
 public class User {
 
     @Id @GeneratedValue
-    @Column(name = "user_id")
     private Long id;
 
     @Column(length = 20, unique = true, nullable = false)
