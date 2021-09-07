@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <title>opgg</title>
     <style>
-        @import url("../static/css/styles.css");
+        @import url("css/styles.css");
     </style>
 </head>
 <body>
@@ -28,7 +28,7 @@
             <span id="field-error">{{search_result.errorMessage}}</span>
         </div>
         <div class="information" v-if="search_result.username">
-            <img src="../static/images/profileIcon4652.jpg" class="profileImage"><br>
+            <img src="images/profileIcon4652.jpg" class="profileImage"><br>
             <label id="usernamelabel">소환사 명:<span class="username">{{search_result.username}}</span></label><br>
             <label id="ranklabel">랭크:<span class="rank" id="rank">{{search_result.rank}}</span></label><br>
             <button id="refreshButton" type="button" class="btn btn-primary btn-lg" onclick="refreshButton();">전적 갱신</button>
