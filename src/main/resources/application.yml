@@ -1,11 +1,12 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/opgg;MODE=MYSQL
+#    url: jdbc:h2:tcp://localhost/~/opgg;MODE=MYSQL
+    url: jdbc:mysql://opgg.cql0y5x56ezx.ap-northeast-2.rds.amazonaws.com:3306/opgg
     username: sa
     password:
     driver-class-name: org.h2.Driver
     hikari:
-      jdbc-url: jdbc:h2:tcp://localhost/~/opgg;MODE=MYSQL
+      jdbc-url: jdbc:mysql://opgg.cql0y5x56ezx.ap-northeast-2.rds.amazonaws.com:3306/opgg
 
   jpa:
     hibernate:
